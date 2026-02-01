@@ -1,0 +1,42 @@
+baseURL = "https://johnnyoh.xyz/"
+languageCode = "en-us"
+title = "Johnny Oh"
+theme = "paper"
+
+# Enable RSS
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[params]
+  # Paper theme settings
+  color = "linen"
+  twitter = ""
+  github = "johnnyoh"
+  avatar = ""
+  name = "Johnny Oh"
+  bio = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 20
+  [[menu.main]]
+    identifier = "projects"
+    name = "Projects"
+    url = "/projects/"
+    weight = 30
+
+[markup]
+  [markup.highlight]
+    style = "github"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

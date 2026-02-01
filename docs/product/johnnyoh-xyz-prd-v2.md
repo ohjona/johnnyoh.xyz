@@ -1,3 +1,12 @@
+---
+id: johnnyoh_xyz_prd_v2
+type: atom
+status: scaffold
+ontos_schema: 2.2
+curation_level: 0
+generated_by: ontos_scaffold
+---
+
 # johnnyoh.xyz — Product Requirements Document (v2)
 
 **Owner:** Johnny
