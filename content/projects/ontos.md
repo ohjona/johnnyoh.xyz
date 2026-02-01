@@ -6,6 +6,10 @@ tags: ["ai", "developer-tools", "context-engineering", "open-source"]
 draft: false
 ---
 
+**GitHub**: [github.com/ohjona/Project-Ontos](https://github.com/ohjona/Project-Ontos) · **Install**: `pipx install ontos`
+
+---
+
 I kept having the same conversation. Not with people, but with AI.
 
 Every time I opened a new Claude session, I'd re-explain my project's architecture. Switch to Cursor for some frontend work? Start over. Ask ChatGPT for a second opinion on an API design? From scratch. Each tool started from zero, every single time.
