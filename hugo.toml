@@ -11,7 +11,7 @@ theme = "paper"
 [params]
   # Paper theme settings
   color = "linen"
-  twitter = ""
+  linkedin = "ohjohnny"
   github = "ohjona"
   avatar = ""
   name = "Johnny Oh"
