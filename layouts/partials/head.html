@@ -1,0 +1,134 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  />
+
+  <!-- title -->
+  <title>
+    {{- if not .IsHome -}}{{- .Title }} - {{ end -}}{{- site.Title -}}
+  </title>
+
+  <!-- meta -->
+  <meta name="theme-color" />
+
+  <!-- author -->
+  {{- $site_author := or site.Author.name site.Params.name site.Title -}}
+  <!---->
+  {{- if eq .Kind "page" -}}
+  <meta name="description" content="{{- .Summary -}}" />
+  <meta name="author" content="{{- or .Params.author $site_author -}}" />
+  {{- else -}}
+  <!---->
+  <meta
+    name="description"
+    content="{{- site.Params.description | default (print `A personal blog`) -}}"
+  />
+  <meta name="author" content="{{- $site_author -}}" />
+  {{- end -}}
+
+  <!-- css & js -->
+  {{- $main := resources.Get "main.css" -}}
+  <!---->
+  {{- $custom := resources.Get "custom.css" -}}
+  <!---->
+  {{- $css := slice $main $custom | resources.Concat "main.css" | minify | fingerprint -}}
+  <link rel="preload stylesheet" as="style" href="{{- $css.Permalink -}}" integrity="{{ $css.Data.Integrity }}" />
+
+  <!-- dark icon -->
+  {{- $dark_icon := "theme.png" -}}
+  <!---->
+  {{- if site.Params.monoDarkIcon -}}{{- $dark_icon = "theme.svg" -}}{{- end -}}
+  <!---->
+  <link rel="preload" as="image" href="{{- $dark_icon | absURL -}}" />
+
+  <!-- avatar -->
+  {{- $avatar_url := $.Scratch.Get "avatar_url" -}}
+  <!---->
+  {{- if $avatar_url -}}
+  <link rel="preload" as="image" href="{{- $avatar_url -}}" />
+  {{- end -}}
+  <!---->
+
+  <!-- social list -->
+  {{- range $.Scratch.Get "social_list" -}}
+  <link rel="preload" as="image" href="{{- printf `%s.svg` . | absURL -}}" />
+  {{- end -}}
+  <!---->
+
+  <!-- highlight js -->
+  {{- if and .IsPage (not site.Params.disableHLJS) -}}
+  <script
+    defer
+    src="{{- `highlight.min.js` | absURL -}}"
+    onload="hljs.initHighlightingOnLoad()"
+  ></script>
+  {{- end -}}
+
+  <!-- math -->
+  {{- if or .Params.math site.Params.math -}}
+  <!---->
+  {{- partial "math.html" . -}}
+  <!---->
+  {{- end -}}
+  <!---->
+
+  <!-- favicon -->
+  <link
+    rel="icon"
+    href="{{- site.Params.favicon | default `favicon.ico` | absURL -}}"
+  />
+  <link
+    rel="apple-touch-icon"
+    href="{{- site.Params.appleTouchIcon | default `apple-touch-icon.png` | absURL -}}"
+  />
+
+  <!-- generator -->
+  {{- hugo.Generator -}}
+
+  <!-- Open Graph Meta Tags (always enabled) -->
+  {{- $title := .Title | default site.Title -}}
+  {{- $description := .Description | default .Summary | default site.Params.description | default "A personal blog" -}}
+  {{- $image := "" -}}
+  {{- if .Params.image -}}
+    {{- $image = .Params.image | absURL -}}
+  {{- else if site.Params.ogImage -}}
+    {{- $image = site.Params.ogImage | absURL -}}
+  {{- else -}}
+    {{- $image = "og-default.png" | absURL -}}
+  {{- end -}}
+  {{- $url := .Permalink -}}
+  {{- $type := "website" -}}
+  {{- if .IsPage -}}
+    {{- $type = "article" -}}
+  {{- end -}}
+
+  <meta property="og:title" content="{{- $title -}}" />
+  <meta property="og:description" content="{{- $description | truncate 200 -}}" />
+  <meta property="og:image" content="{{- $image -}}" />
+  <meta property="og:url" content="{{- $url -}}" />
+  <meta property="og:type" content="{{- $type -}}" />
+  <meta property="og:site_name" content="{{- site.Title -}}" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{- $title -}}" />
+  <meta name="twitter:description" content="{{- $description | truncate 200 -}}" />
+  <meta name="twitter:image" content="{{- $image -}}" />
+
+  <!-- RSS -->
+  {{- range .AlternativeOutputFormats -}}
+  <link
+    rel="{{- .Rel -}}"
+    type="{{- .MediaType.Type -}}"
+    href="{{- .Permalink -}}"
+    title="{{- site.Title -}}"
+  />
+  {{- end -}}
+
+  <!-- canonical -->
+  <link rel="canonical" href="{{- .Permalink -}}" />
+  <!---->
+</head>
