@@ -1,10 +1,55 @@
 /* Custom CSS for Medium-like reading experience */
 
-/* Typography and spacing */
-body {
-  font-size: 19px;
-  line-height: 1.7;
+/* ============================================
+   FONT STACKS (Medium.com)
+   ============================================ */
+
+/* Article body text - Medium's serif stack */
+article,
+.post-content,
+.page-content {
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
 }
+
+/* UI elements - Medium's sans-serif stack */
+body,
+nav,
+header,
+footer,
+.nav,
+.header,
+.footer,
+.tags,
+.tag,
+.meta,
+.metadata,
+.post-meta,
+.page-header,
+.site-header,
+.site-footer,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+/* Body font size */
+body {
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: normal;
+}
+
+/* ============================================
+   CONTENT WIDTH
+   ============================================ */
 
 /* Content width - centered 680px max */
 .main,
@@ -16,14 +61,18 @@ article,
   margin-right: auto;
 }
 
+/* ============================================
+   SPACING
+   ============================================ */
+
 /* Paragraph spacing */
 article p,
 .post-content p,
 .page-content p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
 }
 
-/* Heading spacing - proportional */
+/* Heading spacing - more space above, tight below */
 article h1,
 article h2,
 article h3,
@@ -33,10 +82,11 @@ article h4,
 .post-content h3,
 .post-content h4 {
   margin-top: 2em;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
   line-height: 1.3;
 }
 
+/* Heading sizes */
 article h1,
 .post-content h1 {
   font-size: 2.2em;
@@ -52,13 +102,11 @@ article h3,
   font-size: 1.3em;
 }
 
-/* First paragraph after heading - reduce top margin */
-article h1 + p,
-article h2 + p,
-article h3 + p,
-.post-content h1 + p,
-.post-content h2 + p,
-.post-content h3 + p {
+/* First heading in article - reduce top margin */
+article>h1:first-child,
+article>h2:first-child,
+.post-content>h1:first-child,
+.post-content>h2:first-child {
   margin-top: 0;
 }
 
@@ -67,12 +115,12 @@ article ul,
 article ol,
 .post-content ul,
 .post-content ol {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
 }
 
 article li,
 .post-content li {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.4em;
 }
 
 /* Blockquotes */
