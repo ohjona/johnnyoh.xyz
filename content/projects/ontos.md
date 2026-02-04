@@ -6,7 +6,7 @@ tags: ["ai", "developer-tools", "context-engineering", "open-source"]
 draft: false
 ---
 
-**GitHub**: [github.com/ohjona/Project-Ontos](https://github.com/ohjona/Project-Ontos) · **Install**: `pipx install ontos`
+**GitHub**: [github.com/ohjonathan/Project-Ontos](https://github.com/ohjonathan/Project-Ontos) · **Install**: `pipx install ontos`
 
 ---
 
@@ -95,7 +95,7 @@ The bottleneck in AI-assisted development has shifted. It's no longer about gene
 
 It's early. It's opinionated. It requires you to do some actual thinking about your project's knowledge structure. But if you're tired of re-explaining your project to every AI tool you open, it might be worth a look.
 
-**GitHub**: [github.com/ohjona/Project-Ontos](https://github.com/ohjona/Project-Ontos)
+**GitHub**: [github.com/ohjonathan/Project-Ontos](https://github.com/ohjonathan/Project-Ontos)
 
 **Install**: `pipx install ontos`
 
